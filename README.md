@@ -16,7 +16,6 @@ the browser.
 First, create a spring boot project with https://start.spring.io. Add the `Web` dependency. Set the groupId and
 artifactId to whatever you want. In this example we chose `no.kantega` and `spring-and-react`. 
 
-![start spring config](start-spring-io.png "start.spring.io configuration")
 
 Generate the project and unzip it into your project directory. You probably want to initialize git, add a .gitignore
 and make your initial commit at this point. 
@@ -159,7 +158,7 @@ To create a production build, use npm run build.
 
 This will open a web browser on your desktop, and it should display something like this: 
 
-![A React app](react-app.png)
+![A React app]
 
 ## Calling rest services in spring from React
 Now we have a backend server in Spring Boot running at http://localhost:8080 and a frontend in
