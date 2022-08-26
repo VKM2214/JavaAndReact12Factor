@@ -275,6 +275,7 @@ the frontend and the backend.
 
 ### Run npm from maven
 Add the following to `pom.xml` under `/build/plugins`:  
+
 ```xml
 <plugin>
     <groupId>com.github.eirslett</groupId>
@@ -291,8 +292,8 @@ Add the following to `pom.xml` under `/build/plugins`:
                 <goal>install-node-and-npm</goal>
             </goals>
             <configuration>
-                <nodeVersion>v8.9.4</nodeVersion>
-                <npmVersion>5.6.0</npmVersion>
+	            <nodeVersion>v16.15.0</nodeVersion>
+                <npmVersion>8.10.0</npmVersion>
             </configuration>
         </execution>
         <execution>
@@ -312,6 +313,24 @@ Add the following to `pom.xml` under `/build/plugins`:
             <configuration>
                 <arguments>run build</arguments>
             </configuration>
+        </execution>
+    </executions>
+    </plugin>
+    <plugin>
+    <artifactId>maven-antrun-plugin</artifactId>
+    <executions>
+        <execution>
+            <phase>generate-resources</phase>
+            <configuration>
+                <target>
+                    <copy todir="${project.build.directory}/classes/public">
+                        <fileset dir="${project.basedir}/frontend/build"/>
+                    </copy>
+                </target>
+            </configuration>
+            <goals>
+                <goal>run</goal>
+            </goals>
         </execution>
     </executions>
 </plugin>
