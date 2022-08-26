@@ -316,24 +316,6 @@ Add the following to `pom.xml` under `/build/plugins`:
         </execution>
     </executions>
     </plugin>
-    <plugin>
-    <artifactId>maven-antrun-plugin</artifactId>
-    <executions>
-        <execution>
-            <phase>generate-resources</phase>
-            <configuration>
-                <target>
-                    <copy todir="${project.build.directory}/classes/public">
-                        <fileset dir="${project.basedir}/frontend/build"/>
-                    </copy>
-                </target>
-            </configuration>
-            <goals>
-                <goal>run</goal>
-            </goals>
-        </execution>
-    </executions>
-</plugin>
 ```
 
 When you run `mvn clean install`, maven will install npm and node locally and run `npm build`
